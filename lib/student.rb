@@ -29,11 +29,10 @@ class Student
   end
   
     def self.all_students_in_grade_9
-      binding.pry
 
     sql = <<-SQL
       SELECT * FROM students
-      WHERE grade = students.grade
+      WHERE students.grade = 9
       SQL
       
     DB[:conn].execute(sql).map do |row|
