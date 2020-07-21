@@ -32,14 +32,13 @@ class Student
 
     sql = <<-SQL
       SELECT * FROM students
-      WHERE name = students.name
-      LIMIT 1
+      WHERE grade = students.grade
       SQL
       
     DB[:conn].execute(sql).map do |row|
       self.new_from_db(row)
       #binding.pry
-    end.first
+    end
   end
   
   def save
